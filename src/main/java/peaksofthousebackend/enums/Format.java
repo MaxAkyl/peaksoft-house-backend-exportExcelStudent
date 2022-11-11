@@ -1,4 +1,4 @@
-package enums;
+package peaksofthousebackend.enums;
 
 public enum Format {
     OFFLINE,
