@@ -1,6 +1,6 @@
-package entities;
+package peaksofthousebackend.models;
 
-import enums.Format;
+import peaksofthousebackend.enums.Format;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +12,15 @@ import java.time.LocalDate;
 public class Student {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_id_gen"
+    )
+    @SequenceGenerator(
+            name = "student_id_gen",
+            sequenceName = "student_id_seq",
+            allocationSize = 1
+    )
     private Long id;
 
     private String name;
