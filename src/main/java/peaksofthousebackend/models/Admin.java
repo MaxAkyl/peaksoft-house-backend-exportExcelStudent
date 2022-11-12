@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "admins")
 @Getter
 @Setter
 public class Admin {
@@ -23,7 +24,11 @@ public class Admin {
             allocationSize = 1
     )
     private Long id;
+
     private String email;
+
     private String password;
+
+    @Enumerated(EnumType.STRING)
     private Role role;
 }

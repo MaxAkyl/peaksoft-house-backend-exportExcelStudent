@@ -8,7 +8,10 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static javax.persistence.CascadeType.*;
+
 @Entity
+@Table(name = "banners")
 @Getter
 @Setter
 public class Banner {
@@ -24,14 +27,17 @@ public class Banner {
             allocationSize = 1
     )
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "office_ID")
-    private Office office;
-    @ManyToOne
-    @JoinColumn(name = "type_ID")
-    private CourseType type;
-    private LocalDateTime startDateTime;
-    private LocalDateTime endDateTime;
-    List<Student> students;
 
+    @ManyToOne(cascade = {MERGE, REFRESH, DETACH})
+    private Office office;
+
+    @ManyToOne(cascade = {MERGE, REFRESH, DETACH})
+    private CourseType type;
+
+    private LocalDateTime startDateTime;
+
+    private LocalDateTime endDateTime;
+
+    @OneToMany(mappedBy = "banner", cascade = ALL)
+    private List<Student> students;
 }

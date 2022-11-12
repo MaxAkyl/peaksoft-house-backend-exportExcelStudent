@@ -7,8 +7,12 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+import static javax.persistence.CascadeType.*;
+
 @Entity
-@Getter @Setter
+@Table(name = "consultations")
+@Getter
+@Setter
 public class Consultation {
 
     @Id
@@ -22,13 +26,17 @@ public class Consultation {
             allocationSize = 1
     )
     private Long id;
+
     private String name;
+
     private LocalDate date;
+
     private String phoneNumber;
+
     private String courseType;
-    @ManyToOne
-    @JoinColumn(name = "office_ID")
+
+    private boolean isChecked;
+
+    @ManyToOne(cascade = {MERGE, REFRESH, DETACH})
     private Office office;
-
-
 }
