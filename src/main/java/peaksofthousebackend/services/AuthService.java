@@ -1,12 +1,13 @@
 package peaksofthousebackend.services;
 
 
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.stereotype.Service;
+import peaksofthousebackend.dto.request.AuthRequest;
+import peaksofthousebackend.dto.response.AuthResponse;
 
-@Service
-@Getter
-@Setter
+
 public class AuthService {
+
+//     public AuthResponse authencita(AuthRequest authRequest);
+
+
 }
