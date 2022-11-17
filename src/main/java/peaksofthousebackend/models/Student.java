@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static javax.persistence.CascadeType.*;
 
@@ -31,7 +32,7 @@ public class Student {
 
     private String lastName;
 
-    private LocalDate registerDate;
+    private LocalDateTime registerDate;
 
     private String phoneNumber;
 
@@ -45,8 +46,47 @@ public class Student {
     private String extraPhoneNumber;
 
     @ManyToOne(cascade = {MERGE, REFRESH, DETACH})
+
     private Banner banner;
 
-    // is exported
+    private Boolean isDownloaded;
 
+
+    public Student() {
+    }
+
+    public Student(String name, String lastName, LocalDateTime registerDate,
+                   String phoneNumber, LocalDate dateOfBirth, String email,
+                   Format format, String extraPhoneNumber, Banner banner, Boolean isDownloaded) {
+        this.name = name;
+        this.lastName = lastName;
+        this.registerDate = registerDate;
+        this.phoneNumber = phoneNumber;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
+        this.format = format;
+        this.extraPhoneNumber = extraPhoneNumber;
+        this.banner = banner;
+        this.isDownloaded = false;
+    }
+
+    public Student(String name, String lastName, LocalDateTime now, String phoneNumber, LocalDate dateOfBirth, String email, Format format, String extraPhoneNumber, Banner orElseThrow) {
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", registerDate=" + registerDate +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", email='" + email + '\'' +
+                ", format=" + format +
+                ", extraPhoneNumber='" + extraPhoneNumber + '\'' +
+                ", banner=" + banner +
+                ", isDownloaded=" + isDownloaded +
+                '}';
+    }
 }
