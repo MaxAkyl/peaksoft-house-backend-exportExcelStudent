@@ -40,4 +40,8 @@ public class Banner {
 
     @OneToMany(mappedBy = "banner", cascade = ALL)
     private List<Student> students;
+
+    public void setStudent(Student student) {
+        this.students.add(student);
+    }
 }

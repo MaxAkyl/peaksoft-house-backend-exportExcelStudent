@@ -51,13 +51,17 @@ public class Student {
 
     private Boolean isDownloaded;
 
+    @Column (length = 10000)
+    private String comment;
+
 
     public Student() {
     }
 
     public Student(String name, String lastName, LocalDateTime registerDate,
                    String phoneNumber, LocalDate dateOfBirth, String email,
-                   Format format, String extraPhoneNumber, Banner banner, Boolean isDownloaded) {
+                   Format format, String extraPhoneNumber, Banner banner,
+                   String comment, Boolean isDownloaded) {
         this.name = name;
         this.lastName = lastName;
         this.registerDate = registerDate;
@@ -67,10 +71,12 @@ public class Student {
         this.format = format;
         this.extraPhoneNumber = extraPhoneNumber;
         this.banner = banner;
+        this.comment = comment;
         this.isDownloaded = false;
     }
 
-    public Student(String name, String lastName, LocalDateTime now, String phoneNumber, LocalDate dateOfBirth, String email, Format format, String extraPhoneNumber, Banner orElseThrow) {
+    public Student(String name, String lastName, LocalDateTime now, String phoneNumber, LocalDate dateOfBirth,
+                   String email, Format format, String extraPhoneNumber, Banner orElseThrow, String comment) {
     }
 
     @Override
@@ -86,6 +92,7 @@ public class Student {
                 ", format=" + format +
                 ", extraPhoneNumber='" + extraPhoneNumber + '\'' +
                 ", banner=" + banner +
+                ", comment=" + comment +
                 ", isDownloaded=" + isDownloaded +
                 '}';
     }

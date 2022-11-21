@@ -37,4 +37,6 @@ public class StudentRequest {
     private String extraPhoneNumber;
 
     private Banner banner;
+
+    private String comment;
 }

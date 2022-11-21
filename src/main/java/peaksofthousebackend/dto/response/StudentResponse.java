@@ -24,6 +24,7 @@ public class StudentResponse {
     private Format format;
     private String extraPhoneNumber;
     private Banner banner;
+    private String comment;
     private Boolean isDownloaded;
 
 }
